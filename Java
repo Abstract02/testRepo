@@ -1,0 +1,25 @@
+public String stringDuplicateRemove(String input1){
+        int[] freq = new int[256];
+        for(int i=0;i<input1.length();i++){
+            if(input1.charAt(i)==' ')continue;
+            freq[input1.charAt(i)-'A']++;
+        }
+        String num="";
+        String ans="";
+        int count=0;
+        for(int i=0;i<input1.length();i++){
+            if(input1.charAt(i)==' '){
+                num+=Integer.toString(count);
+                count=0;
+            }
+            else if(freq[input1.charAt(i)-'A']==1){
+                ans+=input1.charAt(i);
+                count++;
+            }
+        }
+        num+=Integer.toString(count);
+        ans+=':';
+        ans+=num;
+        return ans;
+        
+    }
